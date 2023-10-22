@@ -1,5 +1,5 @@
 {
-  "name": "@cookinit/shared",
+  "name": "@suenodk/shared",
   "version": "1.0.0",
   "description": "shared code from cookinit",
   "main": "dist/index.js",
@@ -13,6 +13,6 @@
   "author": "",
   "license": "ISC",
   "publishConfig": {
-    "@cookinit:registry": "https://npm.pkg.github.com"
+    "@suenodk:registry": "https://npm.pkg.github.com"
   }
 }
