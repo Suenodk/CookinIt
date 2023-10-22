@@ -1,6 +1,4 @@
-import { RecipeDto } from "./dto/RecipeDto";
-
-async function getData(): Promise<RecipeDto> {
+async function getData(): Promise<Recipe> {
   const result = await fetch("http://localhost:8080/recipes");
 
   if (!result.ok) {
