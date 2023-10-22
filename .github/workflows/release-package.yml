@@ -34,6 +34,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
         working-directory: shared
+      - run: tsc
+        working-directory: shared
       - run: npm publish
         working-directory: shared
         env:
