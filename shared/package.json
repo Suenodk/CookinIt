@@ -1,6 +1,6 @@
 {
   "name": "@suenodk/shared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "shared code from cookinit",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
