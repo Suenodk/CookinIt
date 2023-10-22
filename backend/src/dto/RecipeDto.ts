@@ -1,3 +1,4 @@
 export class RecipeDto {
-  name: string = '';
+  title: string;
+  createdAt: Date;
 }

@@ -1,14 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
 import { RecipeDto } from 'src/dto/RecipeDto';
-import { PrismaService } from 'src/prisma.service';
+import { RecipesService } from './recipes.service';
 
 @Controller('recipes')
 export class RecipesController {
-  constructor(private prisma: PrismaService) {}
+  constructor(private recipeService: RecipesService) {}
   @Get()
-  async getRecipes(): Promise<RecipeDto> {
-    const recipes = await this.prisma.recipe.findMany();
-    console.log(recipes);
-    return { name: 'Food!' };
+  async getRecipes(): Promise<RecipeDto[]> {
+    const recipes = await this.recipeService.getRecipes();
+    return recipes;
   }
 }

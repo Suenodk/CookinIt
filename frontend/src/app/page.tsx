@@ -14,11 +14,21 @@ export default async function Home() {
   const data = await getData();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      {data.name}
-      <div>Recipe 1</div>
-      <div>Recipe 2</div>
-      <div>Recipe 3</div>
-    </main>
+    <div>
+      <nav className="flex justify-center py-4">
+        <search>
+          <form>
+            <input
+              type="search"
+              placeholder="Your favorite food"
+              className="bg-gray-200 p-2 border-2 hover:border-gray-400 focus:border-gray-400 outline-none w-96"
+            />
+          </form>
+        </search>
+      </nav>
+      <main>
+        <div></div>
+      </main>
+    </div>
   );
 }
