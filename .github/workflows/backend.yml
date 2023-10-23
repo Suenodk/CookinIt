@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: 'Create env file'
         run: |
-          echo "${{ secrets.ENV_FILE_BACKEND }}" > .env
+          echo "${{ secrets.ENV_FILE_BACKEND }}" > backend/.env
       - name: npm install, build, and test
         run: |
           # Build and test the project, then
