@@ -26,6 +26,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: 'Create env file'
+        run: |
+          echo "${{ secrets.ENV_FILE_BACKEND }}" > .env
       - name: npm install, build, and test
         run: |
           # Build and test the project, then
