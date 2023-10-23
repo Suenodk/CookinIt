@@ -2,7 +2,6 @@
 
 # dependencies
 backend/node_modules
-.npmrc
 frontend/node_modules
 shared/dist
 /.pnp
