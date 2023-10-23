@@ -7,6 +7,7 @@ on:
       - "main"
     paths:
       - "backend/**"
+      - ".github/workflows/backend.yml"
 
 env:
   AZURE_WEBAPP_NAME: cookinitapi # set this to your application's name
@@ -32,7 +33,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        working-directory: frontend
+        working-directory: backend
       - name: "Deploy to Azure WebApp"
         uses: azure/webapps-deploy@v2
         with:
