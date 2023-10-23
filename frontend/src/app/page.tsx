@@ -1,4 +1,6 @@
-import {Recipe} from "@suenodk/shared";
+import { Recipe } from "@suenodk/shared";
+import Image from "next/image";
+import logo from "./logo.png";
 
 async function getData(): Promise<Recipe> {
   const result = await fetch("http://localhost:8080/recipes");
@@ -15,7 +17,8 @@ export default async function Home() {
 
   return (
     <div>
-      <nav className="flex justify-center py-4">
+      <nav className="flex justify-space-between py-4">
+        <Image className="w-16" src={logo} alt="orange fox smiling with spatula" />
         <search>
           <form>
             <input
@@ -25,6 +28,7 @@ export default async function Home() {
             />
           </form>
         </search>
+        <button className="bg-orange-500 text-gray-50">Create recipe</button>
       </nav>
       <main>
         <div></div>
