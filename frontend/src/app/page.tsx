@@ -2,6 +2,8 @@ import { Recipe } from "@suenodk/shared";
 import Image from "next/image";
 import logo from "./logo.png";
 
+export const dynamic = "force-dynamic";
+
 async function getData(): Promise<Recipe> {
   const result = await fetch("http://localhost:8080/recipes");
 
