@@ -5,7 +5,7 @@ import logo from "./logo.png";
 export const dynamic = "force-dynamic";
 
 async function getData(): Promise<Recipe> {
-  const result = await fetch("http://localhost:8080/recipes");
+  const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recipes`);
 
   if (!result.ok) {
     throw new Error("Failed to fetch recipes!");
