@@ -11,17 +11,42 @@ datasource db {
 }
 
 model Recipe {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  createdAt DateTime @default(now())
+  id                    String                  @id @default(auto()) @map("_id") @db.ObjectId
+  title                 String
+  createdAt             DateTime                @default(now())
+  createdById           String                  @db.ObjectId
+  createdBy             User                    @relation(fields: [createdById], references: [id])
+  ingredientsForRecipes IngredientsForRecipes[]
+  recipeSteps           RecipeStep[]
+}
 
-  createdById String @db.ObjectId
-  createdBy User @relation(fields: [createdById], references: [id])
+model RecipeStep {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  recipeId    String @db.ObjectId
+  recipe      Recipe @relation(fields: [recipeId], references: [id])
+}
+
+model Ingredient {
+  id                    String                  @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String
+  createdAt             DateTime                @default(now())
+  ingredientsForRecipes IngredientsForRecipes[]
+}
+
+model IngredientsForRecipes {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  recipeId     String     @db.ObjectId
+  recipe       Recipe     @relation(fields: [recipeId], references: [id])
+  ingredientId String     @db.ObjectId
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  amount       String
+  unit         String
 }
 
 model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  username String
-
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String
+  createdAt DateTime @default(now())
   recipes Recipe[]
 }
