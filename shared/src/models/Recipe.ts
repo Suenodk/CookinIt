@@ -1,9 +1,12 @@
+import { IngredientsForRecipes } from "./IngredientsForRecipes";
+import { RecipeStep } from "./RecipeStep";
 import { User } from "./User";
 
 export class Recipe {
   id: string;
   title: string;
   createdAt: Date;
-  createdById: string;
   createdBy: User;
+  ingredientsForRecipes: IngredientsForRecipes[]
+  recipeStep: RecipeStep[]
 }
