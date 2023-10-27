@@ -10,9 +10,12 @@ export function Nav() {
 
   return (
     <>
-      <nav className="flex justify-between gap-4 md:gap-0 px-4 md:p-0 py-4 w-screen md:w-[1024px] self-center items-center">
-        <Image className="w-12 md:w-16" src={logo} alt="orange fox smiling with spatula" />
-        <search className="contents">
+      <nav className="flex justify-center gap-4 md:gap-0 px-4 md:p-0 py-2 w-screen md:w-[1024px] self-center">
+        <a href="/" className="flex items-center gap-2 text-xl md:text-2xl font-bold text-orange-500">
+          <Image className="w-10 md:w-16" src={logo} alt="orange fox smiling with spatula" />
+          <span>CookinIt</span>
+        </a>
+        {/* <search className="contents">
           <form className="contents">
             <input
               type="search"
@@ -20,7 +23,7 @@ export function Nav() {
               className="bg-gray-200 p-2 border-2 hover:border-gray-400 focus:border-gray-400 outline-none w-full md:w-96"
             />
           </form>
-        </search>
+        </search> */}
         {/* <button onClick={() => createRecipeModalRef.current?.showModal()} className="bg-orange-500 text-gray-50 h-12 px-4 rounded">
           Create recipe
         </button> */}

@@ -13,6 +13,7 @@ datasource db {
 model Recipe {
   id                    String                  @id @default(auto()) @map("_id") @db.ObjectId
   title                 String
+  thumbnailUrl          String
   createdAt             DateTime                @default(now())
   createdById           String                  @db.ObjectId
   createdBy             User                    @relation(fields: [createdById], references: [id])
@@ -22,6 +23,7 @@ model Recipe {
 
 model RecipeStep {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
   description String
   recipeId    String @db.ObjectId
   recipe      Recipe @relation(fields: [recipeId], references: [id])
@@ -48,5 +50,5 @@ model User {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   username  String
   createdAt DateTime @default(now())
-  recipes Recipe[]
+  recipes   Recipe[]
 }
