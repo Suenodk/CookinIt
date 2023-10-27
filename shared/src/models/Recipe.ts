@@ -9,5 +9,5 @@ export class Recipe {
   createdAt: Date;
   createdBy: User;
   ingredientsForRecipes: IngredientsForRecipes[];
-  recipeStep: RecipeStep[];
+  recipeSteps: RecipeStep[];
 }
