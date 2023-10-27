@@ -33,8 +33,8 @@ export default function Recipe({ params }: { params: { id: number; recipeName: s
     <>
       <Nav />
       <main>
-        <div className="h-40 cursor-pointer relative">
-          {recipe && <Image className="rounded" layout="fill" src={recipe.thumbnailUrl} alt="pancakes" objectFit="cover" />}
+        <div className="h-40 relative">
+          {recipe && <Image className="rounded object-cover w-full" fill src={recipe.thumbnailUrl} alt="pancakes" />}
         </div>
         <div>
           <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />

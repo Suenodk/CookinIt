@@ -25,12 +25,12 @@ export default async function Home() {
     <>
       <Nav />
       <main>
-        {recipes.map((r) => (
-          <div key={r.title}>{JSON.stringify(r)}</div>
-        ))}
-
         <div className="mx-4 h-40 cursor-pointer relative">
-          {/* <Image className="rounded" layout="fill" src={pancakes.src} alt="pancakes" objectFit="cover" /> */}
+          {recipes.map((r) => (
+            <a key={r.id} className="contents relative" href={`/recipes/${r.id}/${r.title}`}>
+              <Image className="rounded object-cover w-full" fill src={r.thumbnailUrl} alt={r.title} />
+            </a>
+          ))}
         </div>
       </main>
     </>
