@@ -38,7 +38,7 @@ export default function Recipe({ params }: { params: { id: number; recipeName: s
         </div>
         <div>
           <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-          {recipe && activeTab === "ingredients" && <Ingredients ingredients={recipe.ingredientsForRecipes} />}
+          {recipe && activeTab === "ingredients" && <Ingredients ingredients={recipe.ingredients} />}
           {recipe && activeTab === "instructions" && <Instructions steps={recipe.recipeSteps} />}
         </div>
       </main>

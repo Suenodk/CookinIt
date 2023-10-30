@@ -11,14 +11,16 @@ datasource db {
 }
 
 model Recipe {
-  id                    String                  @id @default(auto()) @map("_id") @db.ObjectId
-  title                 String
-  thumbnailUrl          String
-  createdAt             DateTime                @default(now())
-  createdById           String                  @db.ObjectId
-  createdBy             User                    @relation(fields: [createdById], references: [id])
-  ingredientsForRecipes IngredientsForRecipes[]
-  recipeSteps           RecipeStep[]
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  thumbnailUrl  String
+  public        Boolean      @default(false)
+  createdAt     DateTime     @default(now())
+  createdById   String       @db.ObjectId
+  createdBy     User         @relation(fields: [createdById], references: [id])
+  ingredientIds String[]     @db.ObjectId
+  ingredients   Ingredient[]
+  recipeSteps   RecipeStep[]
 }
 
 model RecipeStep {
@@ -30,20 +32,11 @@ model RecipeStep {
 }
 
 model Ingredient {
-  id                    String                  @id @default(auto()) @map("_id") @db.ObjectId
-  name                  String
-  createdAt             DateTime                @default(now())
-  ingredientsForRecipes IngredientsForRecipes[]
-}
-
-model IngredientsForRecipes {
-  id           String     @id @default(auto()) @map("_id") @db.ObjectId
-  recipeId     String     @db.ObjectId
-  recipe       Recipe     @relation(fields: [recipeId], references: [id])
-  ingredientId String     @db.ObjectId
-  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
-  amount       String
-  unit         String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  createdAt DateTime @default(now())
+  recipeId  String @db.ObjectId
+  recipe    Recipe   @relation(fields: [recipeId], references: [id])
 }
 
 model User {

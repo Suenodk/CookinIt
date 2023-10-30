@@ -1,3 +1,1 @@
-export const jwtConstants = {
-  secret: process.env.AUTH_SECRET,
-};
+export const JWT_SECRET = process.env.AUTH_SECRET;

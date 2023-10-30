@@ -9,8 +9,8 @@ export default function Instructions({ steps }: InstructionsProps) {
     <>
       <h2 className="hidden">Instructions</h2>
       <ol className="mb-4 mx-4">
-        {steps.map((step) => (
-          <li key={step.id}>
+        {steps.map((step, index) => (
+          <li key={step.id ?? index}>
             <h3 className="mt-4 text-lg font-medium">{step.title}</h3>
             <p className="text-justify">{step.description}</p>
           </li>

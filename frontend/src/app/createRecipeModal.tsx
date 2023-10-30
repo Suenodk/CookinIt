@@ -1,7 +1,7 @@
 "use client";
 
 export const dynamic = "force-dynamic";
-import { Recipe } from "@suenodk/shared";
+import { CreateRecipeDto } from "@suenodk/shared";
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 
 export interface CreateRecipeModalRefProps {
@@ -31,7 +31,7 @@ export const CreateRecipeModal = forwardRef<CreateRecipeModalRefProps>(function 
       return;
     }
 
-    const newRecipe = new Recipe();
+    const newRecipe = new CreateRecipeDto();
     newRecipe.title = recipeName;
 
     // Otherwise lets add the recipe to the database
@@ -47,12 +47,25 @@ export const CreateRecipeModal = forwardRef<CreateRecipeModalRefProps>(function 
   }
 
   return (
-    <dialog ref={dialogRef}>
-      <h1>Create new recipe</h1>
-      <input value={recipeName} onChange={(e) => setRecipeName(e.target.value)} placeholder="Recipe name" />
-      <form method="dialog">
+    <dialog ref={dialogRef} className="p-4 rounded">
+      <h1 className="text-lg font-medium mb-4">Create new recipe</h1>
+      <div>
+        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Recipe name</label>
+        <input
+          type="text"
+          value={recipeName}
+          onChange={(e) => setRecipeName(e.target.value)}
+          className="border-2 rounded p-2.5 outline-none"
+          placeholder="Pancakes"
+          maxLength={32}
+          required
+        />
+      </div>
+      <form method="dialog" className="justify-end gap-4 flex mt-4">
         <button>Cancel</button>
-        <button onClick={(e) => createRecipe(e)}>Create</button>
+        <button className="text-orange-500" onClick={(e) => createRecipe(e)}>
+          Create
+        </button>
       </form>
     </dialog>
   );

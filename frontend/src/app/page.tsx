@@ -24,14 +24,12 @@ export default async function Home() {
   return (
     <>
       <Nav />
-      <main>
-        <div className="mx-4 h-40 cursor-pointer relative">
-          {recipes.map((r) => (
-            <a key={r.id} className="contents relative" href={`/recipes/${r.id}/${r.title}`}>
-              <Image className="rounded object-cover w-full" fill src={r.thumbnailUrl} alt={r.title} />
-            </a>
-          ))}
-        </div>
+      <main className="flex flex-col gap-4">
+        {recipes.map((r) => (
+          <a key={r.id} className="mx-4 h-40 cursor-pointer relative block" href={`/recipes/${r.id}/${r.title.replace(" ", "-")}`}>
+            <Image className="rounded object-cover w-full" fill src={r.thumbnailUrl} alt={r.title} />
+          </a>
+        ))}
       </main>
     </>
   );
