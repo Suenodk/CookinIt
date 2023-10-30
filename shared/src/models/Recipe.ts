@@ -6,6 +6,7 @@ export class Recipe {
   id: string;
   title: string;
   thumbnailUrl: string;
+  public: boolean;
   createdAt: Date;
   createdBy: User;
   ingredientsForRecipes: IngredientsForRecipes[];
