@@ -1,4 +1,4 @@
-import { IngredientsForRecipes } from "./IngredientsForRecipes";
+import { Ingredient } from "./Ingredient";
 import { RecipeStep } from "./RecipeStep";
 import { User } from "./User";
 
@@ -9,6 +9,6 @@ export class Recipe {
   public: boolean;
   createdAt: Date;
   createdBy: User;
-  ingredientsForRecipes: IngredientsForRecipes[];
+  ingredients: Ingredient[];
   recipeSteps: RecipeStep[];
 }
